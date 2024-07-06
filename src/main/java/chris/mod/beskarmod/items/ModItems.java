@@ -1,5 +1,5 @@
-package java.chris.mod.beskarmod.items;
+package chris.mod.beskarmod.items;
 
 public class ModItems {
-    public static final Deferred
+    //public static final Deferred
 }
