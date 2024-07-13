@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "N/D",
+    " / "
+  ],
+  "key": {
+    "i": {
+      "item": "beskarmod:beskar_ingot"
+    },
+    "N": {
+      "item": "minecraft:netherite_pickaxe"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    },
+    "D": {
+      "item": "minecraft:diamond_pickaxe"
+    }
+  },
+  "result": {
+    "item": "beskarmod:beskar_pickaxe",
+    "count": 1
+  }
+}

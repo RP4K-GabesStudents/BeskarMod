@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ini",
+    "iii",
+    "iii"
+  ],
+  "key": {
+    "i": {
+      "item": "beskarmod:beskar_ingot"
+    },
+    "n": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "result": {
+    "item": "beskarmod:beskar_chestplate",
+    "count": 1
+  }
+}

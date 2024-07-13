@@ -1,5 +1,6 @@
 package chris.mod.beskarmod;
 
+import chris.mod.beskarmod.items.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -56,9 +57,18 @@ public class Beskarmod {
     // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
     public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
             .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
+            .icon(() -> ModItems.BESKAR_INGOT.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-            output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+            output.accept(ModItems.BESKAR_INGOT.get());
+            output.accept(ModItems.BESKAR_SWORD.get());
+            output.accept(ModItems.BESKAR_SHOVEL.get());
+            output.accept(ModItems.BESKAR_AXE.get());
+            output.accept(ModItems.BESKAR_HOE.get());
+            output.accept(ModItems.BESKAR_PICKAXE.get());
+            output.accept(ModItems.BESKAR_BOOTS.get());
+            output.accept(ModItems.BESKAR_CHESTPLATE.get());
+            output.accept(ModItems.BESKAR_LEGGINGS.get());
+            output.accept(ModItems.BESKAR_HELMET.get());
             }).build());
 
     public Beskarmod() {
@@ -76,12 +86,12 @@ public class Beskarmod {
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-
+      ModItems.register(modEventBus);
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, chris.mod.beskarmod.Config.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

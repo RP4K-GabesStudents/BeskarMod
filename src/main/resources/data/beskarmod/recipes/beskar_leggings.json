@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "iCi",
+    "iDi"
+  ],
+  "key": {
+    "i": {
+      "item": "beskarmod:beskar_ingot"
+    },
+    "C": {
+      "item": "minecraft:coal"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "beskarmod:beskar_leggings",
+    "count": 1
+  }
+}
