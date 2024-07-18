@@ -63,6 +63,6 @@
     }
   ],
   "textures": {
-    "layer0": "beskarmod:item/diamond_helmet"
+    "layer0": "beskarmod:item/beskar_helmet"
   }
 }
