@@ -1,14 +1,17 @@
 package chris.mod.beskarmod;
 
 import chris.mod.beskarmod.items.ModItems;
+import chris.mod.beskarmod.items.armor.BeskarHelmet;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -16,6 +19,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -70,6 +74,7 @@ public class Beskarmod {
             output.accept(ModItems.BESKAR_LEGGINGS.get());
             output.accept(ModItems.BESKAR_HELMET.get());
             }).build());
+
 
     public Beskarmod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -132,4 +137,26 @@ public class Beskarmod {
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
     }
+    @SubscribeEvent
+    public void onLivingEquipmentChange(LivingEquipmentChangeEvent event) {
+if (event.getEntity() instanceof Player player)
+{
+    ItemStack newItem = event.getTo();
+    ItemStack oldItem = event.getFrom();
+    if(oldItem.getItem() instanceof BeskarHelmet) {
+player.removeEffect(MobEffects.NIGHT_VISION);
+    }
+    for(ItemStack armorslot:player.getArmorSlots()) {
+if(newItem.getItem()instanceof BeskarHelmet) {
+player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION,-1,0,true,false));
+    if (!EnchantmentHelper.hasBindingCurse(newItem))
+    {
+        newItem.enchant(Enchantments.BINDING_CURSE,Enchantments.BINDING_CURSE.getMaxLevel());
+    }
 }
+    }
+    }
+}
+    }
+    
+
