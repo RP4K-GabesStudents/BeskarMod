@@ -25,7 +25,7 @@ public class ModItems {
     public static final RegistryObject<Item> BESKAR_SWORD = ITEMS.register("beskar_sword", () -> new SwordItem(BeskarTier.BESKAR_TIER, 3,-2.4F,new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> BESKAR_SHOVEL = ITEMS.register("beskar_shovel", () -> new ShovelItem(BeskarTier.BESKAR_TIER, 1F,-3.0F,new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> BESKAR_HOE = ITEMS.register("beskar_hoe", () -> new HoeItem(BeskarTier.BESKAR_TIER, -4,-0F,new Item.Properties().fireResistant()));
-    public static final RegistryObject<Item> BESKAR_AXE = ITEMS.register("beskar_axe", () -> new AxeItem(BeskarTier.BESKAR_TIER, 5.0F,-3.0F,new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> BESKAR_AXE = ITEMS.register("beskar_axe.json", () -> new AxeItem(BeskarTier.BESKAR_TIER, 5.0F,-3.0F,new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> BESKAR_PICKAXE = ITEMS.register("beskar_pickaxe", () -> new PickaxeItem(BeskarTier.BESKAR_TIER, 1,-3.0F,new Item.Properties().fireResistant()));
     //--------------------------------------//
     //-------------------------ARMOR---------------------//

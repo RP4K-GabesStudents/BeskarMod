@@ -1,22 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "iii",
-    "iDi"
+    "i i",
+    "i i"
   ],
   "key": {
     "i": {
       "item": "beskarmod:beskar_ingot"
-    },
-    "D": {
-      "item": "minecraft:diamond_helmet"
     }
   },
   "result": {
-    "item": "beskarmod:beskar_helmet",
+    "id": "beskarmod:beskar_boots",
     "count": 1
   }
 }
-
-
-

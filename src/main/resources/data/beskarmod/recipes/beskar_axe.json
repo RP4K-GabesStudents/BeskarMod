@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#ii",
+    "N/i",
+    " / "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:diamond_axe"
+    },
+    "i": {
+      "item": "beskarmod:beskar_ingot"
+    },
+    "N": {
+      "item": "minecraft:netherite_axe"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "beskarmod:beskar_axe",
+    "count": 1
+  }
+}
