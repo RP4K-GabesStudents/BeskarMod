@@ -148,7 +148,8 @@ public class Beskarmod {
             for (ItemStack armorslot : player.getArmorSlots()) {
                 if (armorslot.getItem() instanceof BeskarHelmet) {
                     player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, -1, 0, true, false));
-                    if (!EnchantmentHelper.hasBindingCurse(newItem)) {
+                    if ( newItem == armorslot && !EnchantmentHelper.hasBindingCurse(newItem))
+                    {
                         newItem.enchant(Enchantments.BINDING_CURSE, Enchantments.BINDING_CURSE.getMaxLevel());
                     }
                 }
