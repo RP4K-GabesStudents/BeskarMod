@@ -63,16 +63,16 @@ public class Beskarmod {
             .withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> ModItems.BESKAR_INGOT.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-            output.accept(ModItems.BESKAR_INGOT.get());
-            output.accept(ModItems.BESKAR_SWORD.get());
-            output.accept(ModItems.BESKAR_SHOVEL.get());
-            output.accept(ModItems.BESKAR_AXE.get());
-            output.accept(ModItems.BESKAR_HOE.get());
-            output.accept(ModItems.BESKAR_PICKAXE.get());
-            output.accept(ModItems.BESKAR_BOOTS.get());
-            output.accept(ModItems.BESKAR_CHESTPLATE.get());
-            output.accept(ModItems.BESKAR_LEGGINGS.get());
-            output.accept(ModItems.BESKAR_HELMET.get());
+                output.accept(ModItems.BESKAR_INGOT.get());
+                output.accept(ModItems.BESKAR_SWORD.get());
+                output.accept(ModItems.BESKAR_SHOVEL.get());
+                output.accept(ModItems.BESKAR_AXE.get());
+                output.accept(ModItems.BESKAR_HOE.get());
+                output.accept(ModItems.BESKAR_PICKAXE.get());
+                output.accept(ModItems.BESKAR_BOOTS.get());
+                output.accept(ModItems.BESKAR_CHESTPLATE.get());
+                output.accept(ModItems.BESKAR_LEGGINGS.get());
+                output.accept(ModItems.BESKAR_HELMET.get());
             }).build());
 
 
@@ -91,7 +91,7 @@ public class Beskarmod {
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-      ModItems.register(modEventBus);
+        ModItems.register(modEventBus);
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -113,11 +113,11 @@ public class Beskarmod {
     }
 
     // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
-    {
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
             event.accept(EXAMPLE_BLOCK_ITEM);
     }
+
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
@@ -130,33 +130,31 @@ public class Beskarmod {
     public static class ClientModEvents {
 
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
+        public static void onClientSetup(FMLClientSetupEvent event) {
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
     }
+
     @SubscribeEvent
     public void onLivingEquipmentChange(LivingEquipmentChangeEvent event) {
-if (event.getEntity() instanceof Player player)
-{
-    ItemStack newItem = event.getTo();
-    ItemStack oldItem = event.getFrom();
-    if(oldItem.getItem() instanceof BeskarHelmet) {
-player.removeEffect(MobEffects.NIGHT_VISION);
-    }
-    for(ItemStack armorslot:player.getArmorSlots()) {
-if(newItem.getItem()instanceof BeskarHelmet) {
-player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION,-1,0,true,false));
-    if (!EnchantmentHelper.hasBindingCurse(newItem))
-    {
-        newItem.enchant(Enchantments.BINDING_CURSE,Enchantments.BINDING_CURSE.getMaxLevel());
+        if (event.getEntity() instanceof Player player) {
+            ItemStack newItem = event.getTo();
+            ItemStack oldItem = event.getFrom();
+            if (oldItem.getItem() instanceof BeskarHelmet) {
+                player.removeEffect(MobEffects.NIGHT_VISION);
+            }
+            for (ItemStack armorslot : player.getArmorSlots()) {
+                if (armorslot.getItem() instanceof BeskarHelmet) {
+                    player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, -1, 0, true, false));
+                    if (!EnchantmentHelper.hasBindingCurse(newItem)) {
+                        newItem.enchant(Enchantments.BINDING_CURSE, Enchantments.BINDING_CURSE.getMaxLevel());
+                    }
+                }
+            }
+        }
     }
 }
-    }
-    }
-}
-    }
     
 
