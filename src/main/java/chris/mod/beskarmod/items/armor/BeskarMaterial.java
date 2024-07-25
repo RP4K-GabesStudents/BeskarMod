@@ -13,7 +13,7 @@ import java.util.function.Supplier;
 
 public enum BeskarMaterial implements ArmorMaterial {
 
-    BESKAR("beskarmod:beskar", 40, new int[]{3, 6, 8, 3}, 13, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
+    BESKAR("beskarmod:beskar", 45, new int[]{5, 7, 9, 4}, 17, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.5F, 1.0F, () -> {
         return Ingredient.of(ModItems.BESKAR_INGOT.get());
     });
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};

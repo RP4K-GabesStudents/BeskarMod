@@ -73,6 +73,7 @@ public class Beskarmod {
                 output.accept(ModItems.BESKAR_CHESTPLATE.get());
                 output.accept(ModItems.BESKAR_LEGGINGS.get());
                 output.accept(ModItems.BESKAR_HELMET.get());
+                output.accept(ModItems.BESKAR_PIN_MISSILE.get());
             }).build());
 
 
